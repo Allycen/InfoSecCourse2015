@@ -183,6 +183,21 @@ citecolor=black, menucolor=black, filecolor=black,
 
 \section{Используя GNU Privacy handbook (ссылка в материалах) потренироваться в использовании gpg через интерфейс командной строки, без использования графических оболочек.}
 
+Были изучены следующие команды:
+
+\begin{itemize}
+	\item –gen-key --- создание новой пары ключей
+	\item –sign --- создает подпись для указанных файлов
+	\item –encrypt --- указывает на то, что данные надо зашифровать
+	\item –symmetric --- используется для шифрования файла
+	\item –decrypt --- расшифровывает указанные файлы и сохраняет результат
+	\item –verify --- проверяет подписи для указанных файлов
+	\item –list-keys --- выводит список всех открытых ключей
+	\item –delete-key --- удаляет открытый ключ из списка. 
+	\item –export (–import) --- экспорт/импорт ключей
+\end{itemize}
+
+\medskip
 
 Создадим пару GPG ключей, для этого наберём команду в терминале <<gpg --gen-key>> в той папке, в которой мы хотим создать ключ.
 
@@ -200,6 +215,62 @@ citecolor=black, menucolor=black, filecolor=black,
 		\includegraphics[width=12cm]{img/8_2}
 	\end{center}
 \end{figure}	
+
+Экспортируем ключ, наберём команду <<gpg --export -a Mickail>>
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=12cm]{img/8_3}
+	\end{center}
+\end{figure}	
+
+
+Для того, чтобы ключ можно было использовать на другой машине произведём вывод в файл командой <<gpg --export -a Mickail > Mickail.asc>>
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=10cm]{img/8_4}
+	\end{center}
+\end{figure}	
+
+Зашифруем файл <<wannaSave.txt>> командой <<gpg -ea -r Mickail wannaSave.txt>>
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=10cm]{img/8_5}
+	\end{center}
+\end{figure}	
+
+\newpage
+
+В результате получим зашифрованный файл <<wannaSave.txt.asc>> со следующим содержанием
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=12cm]{img/8_6}
+	\end{center}
+\end{figure}	
+
+Расшифруем полученный файл командой <<gpg -d wannaSave.txt.asc > deshifr.txt>>
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=12cm]{img/8_7}
+	\end{center}
+\end{figure}	
+
+Получаем расшифрованный файл с исходным содержимым.
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm]{img/8_8}
+	\end{center}
+\end{figure}	
+
+
+\chapter{Выводы}
+
+В ходе выполнения лабораторной работы была изучена программа Kleopatra, используемая для шифрования и подписи GPG. Познакомился с возможностями шифрования с помощью терминала. Появилось представление об электронной подписи файла, ключа и шифрования в целом.
 
 
 \end{document}
