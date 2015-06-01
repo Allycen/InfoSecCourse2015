@@ -1,0 +1,205 @@
+\documentclass[utf8x, 12pt]{G7-32} 
+
+
+% --------- -------- SETTINGS --------- --------
+
+% --------- Настройки стиля ГОСТ 7-32 --------
+
+% Гипертекстовое оглавление в PDF
+\usepackage[
+bookmarks=true, colorlinks=true, unicode=true,
+urlcolor=black,linkcolor=black, anchorcolor=black,
+citecolor=black, menucolor=black, filecolor=black,
+]{hyperref}
+
+\usepackage{graphicx}   % Пакет для включения рисунков
+\DeclareGraphicsExtensions{.jpg,.pdf,.png}
+\geometry{right=20mm}
+\geometry{left=30mm}
+\usepackage{enumerate}
+\setcounter{tocdepth}{3} % Подробность оглавления
+
+
+% --------- other settings --------
+\usepackage{MnSymbol}
+%\usepackage{simpsons}
+% --------- -------- SETTINGS --------- --------
+
+
+
+\begin{document}
+
+\frontmatter 
+
+% --------- -------- TITLE --------- --------
+
+\begin{center} 
+
+\large САНКТ-ПЕТЕРБУРГСИЙ ГОСУДАРСТВЕННЫЙ ПОЛИТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ
+
+\large Кафедра Компьютерных Систем и Программных Технологий \\[5.5cm] 
+
+\huge ОТЧЕТ \\[0.6cm] % название работы, затем отступ 0,6см
+\large по лабораторной работе №3\\
+\large Тема: <<Программа для шифрования и подписи GPG, пакет Gpg4win>>\\
+\large Дисциплина: <<Методы и средства защиты информации>>\\[3.7cm]
+
+\end{center} 
+
+\begin{flushright}
+Выполнил: студент гр. 53501/2 \\
+Пономарев М.A. \\[1.2cm]
+
+
+Преподаватель \\
+Вылегжанина К.Д.
+\end{flushright}
+
+
+\vfill 
+
+\begin{center} 
+\large Санкт-Петербург \\
+2015
+\end{center} 
+
+\thispagestyle{empty}
+
+
+% --------- -------- TITLE --------- --------
+
+\thispagestyle{empty}
+\setcounter{page}{0}
+\tableofcontents
+\clearpage
+\mainmatter
+
+
+\chapter{Задание}
+
+\begin{enumerate}
+	\item Изучить документацию,запустить графическую оболочку Kleopatra
+	\item Создать ключевую пару OpenPGP (File $\rightarrow$ New Certificate)
+	\item Экспортировать сертификат (File $\rightarrow$ Export Certificate)
+	\item Поставить ЭЦП на файл (File $\rightarrow$ Sign/Encrypt Files)
+	\item Получить чужой сертификат из репозитория, файл с данными и файл с сигнатурой
+	\item Импортировать сертификат, подписать его
+	\item Проверить подпись
+	\item Взять сертификат кого-либо из коллег, зашифровать и подписать для него какой--либо текст, предоставить свой сертификат, убедиться, что ему удалось получить открытый текст, проверить подпись
+	\item Предыдущий пункт наоборот
+	\item Используя GNU Privacy handbook (ссылка в материалах) потренироваться в использовании gpg через интерфейс командной строки, без использования графических оболочек.
+\end{enumerate}
+
+
+\chapter{Выполнение}
+
+\section{Создать ключевую пару OpenPGP (File $\rightarrow$ New Certificate)}
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm, height=6cm]{img/1_1}
+		\includegraphics[width=7cm, height=6cm]{img/1_2}
+	\end{center}
+\end{figure}	
+
+\section{Экспортировать сертификат (File $\rightarrow$ Export Certificate)}
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=9cm]{img/2_1}
+	\end{center}
+\end{figure}	
+
+\newpage
+
+\section{Поставить ЭЦП на файл (File $\rightarrow$ Sign/Encrypt Files)}
+
+Создадим файл <<temp.txt>>, чтобы впоследствии зашифровать его.
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm, height=6cm]{img/3_1}
+		\includegraphics[width=7cm, height=6cm]{img/3_2}
+		\includegraphics[width=7cm, height=6cm]{img/3_3}
+	\end{center}
+\end{figure}	
+
+В ходе шифрования нас попросят ввести фразу--пароль. 
+
+
+\section{Получить чужой сертификат из репозитория, файл с данными и файл с сигнатурой}
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=9cm]{img/4_1}
+	\end{center}
+\end{figure}	
+
+\newpage
+
+\section{Импортировать сертификат, подписать его}
+
+Импортируем сертификат:
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=9cm]{img/5_1}
+	\end{center}
+\end{figure}	
+
+
+Подпишем сертификат:
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm, height=6cm]{img/5_2}
+		\includegraphics[width=7cm, height=6cm]{img/5_3}
+		\includegraphics[width=7cm, height=6cm]{img/5_4}
+	\end{center}
+\end{figure}	
+
+
+ \newpage
+\section{Проверить подпись}
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm, height=6cm]{img/6_1}
+		\includegraphics[width=7cm, height=6cm]{img/6_2}
+	\end{center}
+\end{figure}	
+
+
+\section{Взять сертификат кого-либо из коллег, зашифровать и подписать для него какой--либо текст, предоставить свой сертификат, убедиться, что ему удалось получить открытый текст, проверить подпись}
+
+Сертификат был взят преподавательский. Был создан файл <<txtToFriend.txt>> для дальнейшего шифрования.
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=7cm, height=6cm]{img/7_1}
+		\includegraphics[width=7cm, height=6cm]{img/7_2}
+	\end{center}
+\end{figure}	
+
+На компьютере Олега Воробьева проверили подпись и открыли исходный текст.
+
+\newpage
+
+\section{Используя GNU Privacy handbook (ссылка в материалах) потренироваться в использовании gpg через интерфейс командной строки, без использования графических оболочек.}
+
+
+Создадим пару GPG ключей, для этого наберём команду в терминале <<gpg --gen-key>> в той папке, в которой мы хотим создать ключ.
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=12cm]{img/8_1}
+	\end{center}
+\end{figure}	
+
+
+Выведем список доступных ключей, для этого наберём команду \linebreak <<gpg --list-keys>>
+
+\begin{figure}[hhh!]
+	\begin{center}
+		\includegraphics[width=12cm]{img/8_2}
+	\end{center}
+\end{figure}	
+
+
+\end{document}
